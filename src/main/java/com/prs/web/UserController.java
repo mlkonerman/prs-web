@@ -100,7 +100,7 @@ public class UserController {
 				jr = JsonResponse.getInstance("User deleted.");
 			} else {
 				jr = JsonResponse.getInstance(
-						"User id: " + u.getId() + " does not exist and" + "you are attempting to delete it.");
+						"User id: " + u.getId() + " does not exist and " + "you are attempting to delete it.");
 			}
 		} catch (Exception e) {
 			jr = JsonResponse.getInstance(e);
