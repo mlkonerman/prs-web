@@ -9,9 +9,9 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class PurchaseRequestLineItem {
-	
-	@Id //declares id the primary key
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
+	@Id // declares id the primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@ManyToOne
 	@JoinColumn(name = "PurchaseRequestID")
@@ -20,7 +20,7 @@ public class PurchaseRequestLineItem {
 	@JoinColumn(name = "ProductID")
 	private Product product;
 	private int quantity;
-	
+
 	public PurchaseRequestLineItem(int id, PurchaseRequest purchaseRequest, Product product, int quantity) {
 		super();
 		this.id = id;
@@ -28,7 +28,7 @@ public class PurchaseRequestLineItem {
 		this.product = product;
 		this.quantity = quantity;
 	}
-	
+
 	public PurchaseRequestLineItem(PurchaseRequest purchaseRequest, Product product, int quantity) {
 		super();
 		this.purchaseRequest = purchaseRequest;
@@ -38,9 +38,9 @@ public class PurchaseRequestLineItem {
 
 	public PurchaseRequestLineItem() {
 		super();
-		
-}
-	
+
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -72,12 +72,11 @@ public class PurchaseRequestLineItem {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "PurchaseRequestLineItem [id=" + id + ",PurchaseRequest=" + purchaseRequest +  
-				", Product=" + product + ", Quantity=" + quantity +"]";		
+		return "PurchaseRequestLineItem [id=" + id + ",PurchaseRequest=" + purchaseRequest + ", Product=" + product
+				+ ", Quantity=" + quantity + "]";
 	}
-
 
 }

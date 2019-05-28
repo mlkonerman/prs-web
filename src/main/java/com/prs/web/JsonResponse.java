@@ -2,7 +2,6 @@ package com.prs.web;
 
 import java.util.ArrayList;
 
-
 public class JsonResponse {
 
 	private Object data = null;
@@ -14,7 +13,7 @@ public class JsonResponse {
 		data = d;
 		meta = new ArrayList<>();
 	}
-	
+
 	// 500 / error response
 	public JsonResponse(Exception e) {
 		errors = e;
@@ -23,7 +22,7 @@ public class JsonResponse {
 	public JsonResponse(String s) {
 		errors = s;
 	}
-	
+
 	public Object getData() {
 		return data;
 	}

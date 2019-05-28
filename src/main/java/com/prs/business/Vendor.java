@@ -7,9 +7,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Vendor {
-	
-	@Id //declares id the primary key
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
+	@Id // declares id the primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String code;
 	private String name;
@@ -21,7 +21,6 @@ public class Vendor {
 	private String email;
 	private boolean isPreApproved;
 
-	
 	public Vendor(int id, String code, String name, String address, String city, String state, String zip,
 			String phoneNumber, String email, boolean isPreApproved) {
 		super();
@@ -37,9 +36,9 @@ public class Vendor {
 		this.isPreApproved = isPreApproved;
 
 	}
-	
-	public Vendor(String code, String name, String address, String city, String state, String zip,
-			String phoneNumber, String email, boolean isPreApproved) {
+
+	public Vendor(String code, String name, String address, String city, String state, String zip, String phoneNumber,
+			String email, boolean isPreApproved) {
 		super();
 		this.code = code;
 		this.name = name;
@@ -51,6 +50,11 @@ public class Vendor {
 		this.email = email;
 		this.isPreApproved = isPreApproved;
 
+	}
+
+	public Vendor(int id) {
+		super();
+		this.id = id;
 	}
 
 	public Vendor() {
@@ -144,6 +148,5 @@ public class Vendor {
 				+ ", IsPreApproved=" + isPreApproved + "]";
 
 	}
-
 
 }

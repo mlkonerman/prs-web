@@ -25,7 +25,7 @@ public class UserController {
 		}
 		return jr;
 	}
-	
+
 	@GetMapping("/{id}")
 	public JsonResponse get(@PathVariable int id) {
 		JsonResponse jr = null;
@@ -40,7 +40,7 @@ public class UserController {
 		}
 		return jr;
 	}
-	
+
 	@PostMapping("/")
 	public JsonResponse add(@RequestBody User u) {
 		JsonResponse jr = null;
@@ -53,14 +53,14 @@ public class UserController {
 		}
 		return jr;
 	}
-	
-	@PostMapping("")
-	public JsonResponse getByUserNameAndPassword(@RequestParam String userName, String password) {
+
+	@PostMapping("/authenticate")
+	public JsonResponse authenticate(@RequestBody User u) {
 		JsonResponse jr = null;
 		try {
-			Optional<User> u = userRepository.findByUserNameAndPassword(userName, password);
-			if (u.isPresent())
-				jr = JsonResponse.getInstance(u);
+			Optional<User> user = userRepository.findByUserNameAndPassword(u.getUserName(), u.getPassword());
+			if (user.isPresent())
+				jr = JsonResponse.getInstance(user);
 			else
 				jr = JsonResponse.getInstance("Invalid login. Username and password combination not found.");
 		} catch (Exception e) {
@@ -69,7 +69,6 @@ public class UserController {
 		return jr;
 	}
 
-	
 	@PutMapping("/")
 	public JsonResponse update(@RequestBody User u) {
 		JsonResponse jr = null;
@@ -81,7 +80,7 @@ public class UserController {
 				jr = JsonResponse.getInstance(userRepository.save(u));
 			} else {
 				jr = JsonResponse.getInstance(
-						"User id: " + u.getId() + " does not exist and" + "you are attempting to save it.");
+						"User id: " + u.getId() + " does not exist and you are attempting to save it.");
 			}
 		} catch (Exception e) {
 			jr = JsonResponse.getInstance(e);
@@ -100,14 +99,12 @@ public class UserController {
 				jr = JsonResponse.getInstance("User deleted.");
 			} else {
 				jr = JsonResponse.getInstance(
-						"User id: " + u.getId() + " does not exist and " + "you are attempting to delete it.");
+						"User id: " + u.getId() + " does not exist and you are attempting to delete it.");
 			}
 		} catch (Exception e) {
 			jr = JsonResponse.getInstance(e);
 		}
 		return jr;
 	}
-
-
 
 }

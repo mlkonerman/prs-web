@@ -32,7 +32,7 @@ public class VendorController {
 		}
 		return jr;
 	}
-	
+
 	@GetMapping("/{id}")
 	public JsonResponse get(@PathVariable int id) {
 		JsonResponse jr = null;
@@ -47,7 +47,7 @@ public class VendorController {
 		}
 		return jr;
 	}
-	
+
 	@PostMapping("/")
 	public JsonResponse add(@RequestBody Vendor v) {
 		JsonResponse jr = null;
@@ -60,7 +60,7 @@ public class VendorController {
 		}
 		return jr;
 	}
-	
+
 	@PutMapping("/")
 	public JsonResponse update(@RequestBody Vendor v) {
 		JsonResponse jr = null;
@@ -72,7 +72,7 @@ public class VendorController {
 				jr = JsonResponse.getInstance(vendorRepository.save(v));
 			} else {
 				jr = JsonResponse.getInstance(
-						"Vendor id: " + v.getId() + " does not exist and" + "you are attempting to save it.");
+						"Vendor id: " + v.getId() + " does not exist and you are attempting to save it.");
 			}
 		} catch (Exception e) {
 			jr = JsonResponse.getInstance(e);
@@ -91,12 +91,12 @@ public class VendorController {
 				jr = JsonResponse.getInstance("User deleted.");
 			} else {
 				jr = JsonResponse.getInstance(
-						"Vendor id: " + v.getId() + " does not exist and " + "you are attempting to delete it.");
+						"Vendor id: " + v.getId() + " does not exist and you are attempting to delete it.");
 			}
 		} catch (Exception e) {
 			jr = JsonResponse.getInstance(e);
 		}
 		return jr;
 	}
-	
+
 }

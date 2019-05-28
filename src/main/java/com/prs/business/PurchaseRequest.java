@@ -11,9 +11,9 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class PurchaseRequest {
-	
-	@Id //declares id the primary key
-	@GeneratedValue(strategy=GenerationType.IDENTITY)	
+
+	@Id // declares id the primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@ManyToOne
 	@JoinColumn(name = "userID")
@@ -26,115 +26,128 @@ public class PurchaseRequest {
 	private double total;
 	private LocalDateTime submittedDate;
 	private String reasonForRejection;
-	
+
 	public PurchaseRequest(int id, User user, String description, String justification, LocalDateTime dateNeeded,
-			String deliveryMode, String status, double total, LocalDateTime submittedDate,
-			String reasonForRejection) {
-	super();
-	this.id = id;
-	this.user = user;
-	this.description = description;
-	this.justification = justification;
-	this.dateNeeded = dateNeeded;
-	this.deliveryMode = deliveryMode;
-	this.status = status;
-	this.total = total;
-	this.submittedDate = submittedDate;
-	this.reasonForRejection = reasonForRejection;
-	
-}
+			String deliveryMode, String status, double total, LocalDateTime submittedDate, String reasonForRejection) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.description = description;
+		this.justification = justification;
+		this.dateNeeded = dateNeeded;
+		this.deliveryMode = deliveryMode;
+		this.status = status;
+		this.total = total;
+		this.submittedDate = submittedDate;
+		this.reasonForRejection = reasonForRejection;
 
-public PurchaseRequest() {
-	super();	
-}
+	}
 
-public int getId() {
-	return id;
-}
+	public PurchaseRequest(User user, String description, String justification, LocalDateTime dateNeeded,
+			String deliveryMode, String status, double total, LocalDateTime submittedDate, String reasonForRejection) {
+		super();
+		this.user = user;
+		this.description = description;
+		this.justification = justification;
+		this.dateNeeded = dateNeeded;
+		this.deliveryMode = deliveryMode;
+		this.status = status;
+		this.total = total;
+		this.submittedDate = submittedDate;
+		this.reasonForRejection = reasonForRejection;
+	}
 
-public void setId(int id) {
-	this.id = id;
-}
+	public PurchaseRequest() {
+		super();
+	}
 
-public User getUser() {
-	return user;
-}
+	public int getId() {
+		return id;
+	}
 
-public void setUser(User user) {
-	this.user = user;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-public String getDescription() {
-	return description;
-}
+	public User getUser() {
+		return user;
+	}
 
-public void setDescription(String description) {
-	this.description = description;
-}
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-public String getJustification() {
-	return justification;
-}
+	public String getDescription() {
+		return description;
+	}
 
-public void setJustification(String justification) {
-	this.justification = justification;
-}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-public LocalDateTime getDateNeeded() {
-	return dateNeeded;
-}
+	public String getJustification() {
+		return justification;
+	}
 
-public void setDateNeeded(LocalDateTime dateNeeded) {
-	this.dateNeeded = dateNeeded;
-}
+	public void setJustification(String justification) {
+		this.justification = justification;
+	}
 
-public String getDeliveryMode() {
-	return deliveryMode;
-}
+	public LocalDateTime getDateNeeded() {
+		return dateNeeded;
+	}
 
-public void setDeliveryMode(String deliveryMode) {
-	this.deliveryMode = deliveryMode;
-}
+	public void setDateNeeded(LocalDateTime dateNeeded) {
+		this.dateNeeded = dateNeeded;
+	}
 
-public String getStatus() {
-	return status;
-}
+	public String getDeliveryMode() {
+		return deliveryMode;
+	}
 
-public void setStatus(String status) {
-	this.status = status;
-}
+	public void setDeliveryMode(String deliveryMode) {
+		this.deliveryMode = deliveryMode;
+	}
 
-public double getTotal() {
-	return total;
-}
+	public String getStatus() {
+		return status;
+	}
 
-public void setTotal(double total) {
-	this.total = total;
-}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-public LocalDateTime getSubmittedDate() {
-	return submittedDate;
-}
+	public double getTotal() {
+		return total;
+	}
 
-public void setSubmittedDate(LocalDateTime submittedDate) {
-	this.submittedDate = submittedDate;
-}
+	public void setTotal(double total) {
+		this.total = total;
+	}
 
-public String getReasonForRejection() {
-	return reasonForRejection;
-}
+	public LocalDateTime getSubmittedDate() {
+		return submittedDate;
+	}
 
-public void setReasonForRejection(String reasonForRejection) {
-	this.reasonForRejection = reasonForRejection;
-}
+	public void setSubmittedDate(LocalDateTime submittedDate) {
+		this.submittedDate = submittedDate;
+	}
 
-@Override
-public String toString() {
-	return "Purchase Request [id=" + id + ", User=" + user + ", Description=" + description + 
-			", Justification=" + justification + ", DateNeeded=" + dateNeeded + 
-			", DeliveryMode=" + deliveryMode +", Status=" + status +", Total=" + total +
-			", DateSubmitted=" + submittedDate + ", ReasonForRejection=" + reasonForRejection +"]";
-	
-}
+	public String getReasonForRejection() {
+		return reasonForRejection;
+	}
+
+	public void setReasonForRejection(String reasonForRejection) {
+		this.reasonForRejection = reasonForRejection;
+	}
+
+	@Override
+	public String toString() {
+		return "Purchase Request [id=" + id + ", User=" + user + ", Description=" + description + ", Justification="
+				+ justification + ", DateNeeded=" + dateNeeded + ", DeliveryMode=" + deliveryMode + ", Status=" + status
+				+ ", Total=" + total + ", DateSubmitted=" + submittedDate + ", ReasonForRejection=" + reasonForRejection
+				+ "]";
+
+	}
 
 }

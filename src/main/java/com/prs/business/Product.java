@@ -7,12 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-
 @Entity
 public class Product {
-	
-	@Id //declares id the primary key
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
+	@Id // declares id the primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@ManyToOne
 	@JoinColumn(name = "VendorID")
@@ -26,6 +25,16 @@ public class Product {
 	public Product(int id, Vendor vendor, String partNumber, String name, double price, String unit, String photoPath) {
 		super();
 		this.id = id;
+		this.vendor = vendor;
+		this.partNumber = partNumber;
+		this.name = name;
+		this.price = price;
+		this.unit = unit;
+		this.photoPath = photoPath;
+
+	}
+
+	public Product(Vendor vendor, String partNumber, String name, double price, String unit, String photoPath) {
 		this.vendor = vendor;
 		this.partNumber = partNumber;
 		this.name = name;
@@ -82,6 +91,7 @@ public class Product {
 	public String getUnit() {
 		return unit;
 	}
+
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
@@ -96,9 +106,9 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ",Vendor=" + vendor + ", PartNumber=" + partNumber + 
-				", Name=" + name + ", Price=" + price + ", Unit =" + unit + ", PhotoPath =" + photoPath + "]";
-		
+		return "Product [id=" + id + ",Vendor=" + vendor + ", PartNumber=" + partNumber + ", Name=" + name + ", Price="
+				+ price + ", Unit =" + unit + ", PhotoPath =" + photoPath + "]";
+
 	}
 
 }

@@ -27,18 +27,19 @@ public class VendorTests {
 	}
 
 	@Test
-	//NOT WORKING
+	// NOT WORKING
 	public void testVendorAddAndDelete() {
-		Vendor v = new Vendor("testcode", "testname", "testaddress", "testcity", "teststate", "testzip", "testphone",
-				"testemail", true);
+		Vendor v = new Vendor("testcode", "testname", "testaddress", "testcity", "OH", "45238", "testphone",
+				"testemail", false);
 		// save a vendor
 		assertNotNull(vendorRepository.save(v));
-		// assert that last name is correct
-		assertEquals("name", v.getName());
+		// assert that vendor name is correct
+		assertEquals("testname", v.getName());
 		// delete the user
-		// userRepository.delete(u);
+		vendorRepository.delete(v);
 		// confirm user deletion by getting the user by id
-		// assertFalse(userRepository.findById(u.getId()).isPresent());
+		assertFalse(vendorRepository.findById(v.getId()).isPresent());
+
 	}
 
 }

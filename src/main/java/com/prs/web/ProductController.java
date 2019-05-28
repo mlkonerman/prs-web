@@ -1,4 +1,5 @@
 package com.prs.web;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class ProductController {
 		}
 		return jr;
 	}
-	
+
 	@GetMapping("/{id}")
 	public JsonResponse get(@PathVariable int id) {
 		JsonResponse jr = null;
@@ -46,7 +47,7 @@ public class ProductController {
 		}
 		return jr;
 	}
-	
+
 	@PostMapping("/")
 	public JsonResponse add(@RequestBody Product p) {
 		JsonResponse jr = null;
@@ -59,7 +60,7 @@ public class ProductController {
 		}
 		return jr;
 	}
-	
+
 	@PutMapping("/")
 	public JsonResponse update(@RequestBody Product p) {
 		JsonResponse jr = null;
@@ -71,7 +72,7 @@ public class ProductController {
 				jr = JsonResponse.getInstance(productRepository.save(p));
 			} else {
 				jr = JsonResponse.getInstance(
-						"Product id: " + p.getId() + " does not exist and" + " you are attempting to save it.");
+						"Product id: " + p.getId() + " does not exist and you are attempting to save it.");
 			}
 		} catch (Exception e) {
 			jr = JsonResponse.getInstance(e);
@@ -90,12 +91,12 @@ public class ProductController {
 				jr = JsonResponse.getInstance("Product deleted.");
 			} else {
 				jr = JsonResponse.getInstance(
-						"Product id: " + p.getId() + " does not exist and " + "	you are attempting to delete it.");
+						"Product id: " + p.getId() + " does not exist and you are attempting to delete it.");
 			}
 		} catch (Exception e) {
 			jr = JsonResponse.getInstance(e);
 		}
 		return jr;
 	}
-	
+
 }

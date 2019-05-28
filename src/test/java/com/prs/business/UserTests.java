@@ -36,9 +36,9 @@ public class UserTests {
 		// assert that last name is correct
 		assertEquals("lastname", u.getLastName());
 		//delete the user
-		//userRepository.delete(u);
+		userRepository.delete(u);
 		//confirm user deletion by getting the user by id
-		//assertFalse(userRepository.findById(u.getId()).isPresent());
+		assertFalse(userRepository.findById(u.getId()).isPresent());
 	}
 
 }

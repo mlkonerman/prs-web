@@ -7,8 +7,8 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
-	@Id //declares id the primary key
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id // declares id the primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String userName;
 	private String password;
@@ -19,9 +19,8 @@ public class User {
 	private boolean isReviewer;
 	private boolean isAdmin;
 
-	
-	public User(int id, String userName, String password, String firstName, String lastName,
-				String phoneNumber, String email, boolean isReviewer, boolean isAdmin) {
+	public User(int id, String userName, String password, String firstName, String lastName, String phoneNumber,
+			String email, boolean isReviewer, boolean isAdmin) {
 		super();
 		this.id = id;
 		this.userName = userName;
@@ -32,15 +31,16 @@ public class User {
 		this.email = email;
 		this.isReviewer = isReviewer;
 		this.isAdmin = isAdmin;
-		
+
 	}
-	
+
 	public User() {
 		super();
-		
+
 	}
-	public User(String userName, String password, String firstName, String lastName, String phoneNumber,
-			String email, boolean isReviewer, boolean isAdmin) {
+
+	public User(String userName, String password, String firstName, String lastName, String phoneNumber, String email,
+			boolean isReviewer, boolean isAdmin) {
 		super();
 		this.userName = userName;
 		this.password = password;
@@ -50,92 +50,92 @@ public class User {
 		this.email = email;
 		this.isReviewer = isReviewer;
 		this.isAdmin = isAdmin;
-		
+
+	}
+
+	public User(int id) {
+		super();
+		this.id = id;
 	}
 
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getUserName() {
 		return userName;
 	}
-	
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
-	
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
+
 	public String getLastName() {
 		return lastName;
 	}
-	
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
-	
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public boolean isReviewer() {
 		return isAdmin;
-	} 
-	
+	}
+
 	public void setReviewer(boolean isReviewer) {
 		this.isReviewer = isReviewer;
 	}
-	
+
 	public boolean isAdmin() {
 		return isAdmin;
 	}
-	
+
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 
-	
-	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", UserName=" + userName + ", password=" + password + 
-				", FirstName=" + firstName + ", LastName=" + lastName + 
-				", LastName=" + lastName +", PhoneNumber=" + phoneNumber +", Email=" + email +
-				", IsReviewer=" + isReviewer + ", IsAdmin=" + isAdmin +"]";
-	
-		
-	}
+		return "User [id=" + id + ", UserName=" + userName + ", password=" + password + ", FirstName=" + firstName
+				+ ", LastName=" + lastName + ", LastName=" + lastName + ", PhoneNumber=" + phoneNumber + ", Email="
+				+ email + ", IsReviewer=" + isReviewer + ", IsAdmin=" + isAdmin + "]";
 
+	}
 
 }
