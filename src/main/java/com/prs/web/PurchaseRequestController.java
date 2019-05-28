@@ -126,7 +126,7 @@ public class PurchaseRequestController {
 	}
 
 	@GetMapping("/list-review")
-	public JsonResponse listAllInReviewStatus(@RequestBody User u) {
+	public JsonResponse listAllInReviewStatusAndNotReviewer(@RequestBody User u) {
 		JsonResponse jr = null;
 		try {
 			Iterable<PurchaseRequest> pr = prRepository.findByStatusAndUserNot("Review", u);
